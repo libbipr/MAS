@@ -1,0 +1,13 @@
+<svg id="medicalAccessSupportLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100">
+  <style type="text/css">
+    .circle { fill: #4a90e2; }
+    .cross { fill: #ffffff; }
+    .logo-text { font-family: Arial, sans-serif; font-size: 24px; fill: #333333; }
+  </style>
+  <!-- Blue circle with a white cross for a medical icon -->
+  <circle class="circle" cx="50" cy="50" r="40"/>
+  <rect class="cross" x="40" y="30" width="20" height="40"/>
+  <rect class="cross" x="30" y="40" width="40" height="20"/>
+  <!-- Text for the logo -->
+  <text class="logo-text" x="110" y="60">Medical Access Support</text>
+</svg>
