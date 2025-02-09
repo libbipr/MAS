@@ -6,13 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Accessible Medical & Counselling Appointments</title>
   <link rel="stylesheet" href="style.css">
-  <!--
-    Note: For data privacy and HIPAA compliance, secure login and auto reminders,
-    additional server‑side implementation is required.
-  -->
+
 </head>
 <body>
-  <!-- Header with simple navigation -->
+  <!-- Header with simple, easy navigation -->
   <header>
     <nav>
       <ul>
@@ -30,7 +27,7 @@
       <h2 id="booking-heading">Book an Appointment</h2>
       <p>Follow these simple steps to schedule your medical or counselling appointment:</p>
       <form action="my-account.html" method="GET">
-        <!-- Appointment type selection -->
+      <!-- Appointment type selection -->
         <label for="appointment-type">Appointment Type:</label>
         <select id="appointment-type" name="appointment-type" required>
           <option value="">-- Select One --</option>
@@ -38,14 +35,14 @@
           <option value="counselling">Counselling</option>
         </select>
         
-        <!-- Date and time selection -->
+      <!-- Date and time selection -->
         <label for="date">Preferred Date:</label>
         <input type="date" id="date" name="date" required>
         
         <label for="time">Preferred Time:</label>
         <input type="time" id="time" name="time" required>
         
-        <!-- Communication options for reminders -->
+      <!-- Communication options for reminders -->
         <fieldset>
           <legend>Preferred Reminder Method:</legend>
           <label>
