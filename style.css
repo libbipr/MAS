@@ -135,3 +135,34 @@ footer {
 #myBtn:hover {
   background-color: #555; /* Add a dark-grey background on hover */
 }
+
+/*Horizontal nav bar styling*/
+
+.horizontal-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;  /* Centers the nav items horizontally */
+  background-color: #4a90e2;  /* Muted blue background */
+}
+
+.horizontal-nav li {
+  margin: 0;
+  padding: 0;
+}
+
+.horizontal-nav li a {
+  display: block;
+  padding: 1em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.horizontal-nav li a:hover,
+.horizontal-nav li a:focus {
+  background-color: #3a78c2;  /* Darker shade for hover/focus */
+}
+
