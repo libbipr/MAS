@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <!-- Responsive design meta tag -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Account - Accessible Medical Scheduling</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <script>
-    // Simulate secure login using dummy credentials.
-    // (For demonstration only. Real secure login requires server‑side validation.)
+    // Simulated secure login using dummy credentials.
+    // (For demonstration only. In a real application, use server‑side authentication.)
     function loginUser(event) {
       event.preventDefault();
       const username = document.getElementById('account-username').value;
@@ -42,13 +42,18 @@
       const appointmentType = document.getElementById('account-appointment-type').value;
       const appointmentDate = document.getElementById('account-date').value;
       const appointmentTime = document.getElementById('account-time').value;
+      const emergencyContact = document.getElementById('account-emergency').value;
       
       if (!appointmentType || !appointmentDate || !appointmentTime) {
         alert('Please complete all appointment fields.');
         return;
       }
       // In a real system, you would send this data to a secure server.
-      alert('Appointment for ' + appointmentType + ' scheduled on ' + appointmentDate + ' at ' + appointmentTime + '.');
+      let message = 'Appointment for ' + appointmentType + ' scheduled on ' + appointmentDate + ' at ' + appointmentTime + '.';
+      if (emergencyContact.trim() !== '') {
+        message += '\nEmergency Contact: ' + emergencyContact;
+      }
+      alert(message);
     }
   </script>
 </head>
@@ -69,10 +74,10 @@
       <h2>Secure Login</h2>
       <form onsubmit="loginUser(event)">
         <label for="account-username">Username or Email:</label>
-        <input type="text" id="account-username" name="account-username" required />
+        <input type="text" id="account-username" name="account-username" required>
 
         <label for="account-password">Password:</label>
-        <input type="password" id="account-password" name="account-password" required />
+        <input type="password" id="account-password" name="account-password" required>
 
         <button type="submit">Login</button>
       </form>
@@ -94,11 +99,15 @@
           </select>
 
           <label for="account-date">Preferred Date:</label>
-          <input type="date" id="account-date" name="account-date" required />
+          <input type="date" id="account-date" name="account-date" required>
 
           <label for="account-time">Preferred Time:</label>
-          <input type="time" id="account-time" name="account-time" required />
-
+          <input type="time" id="account-time" name="account-time" required>
+          
+          <!-- Emergency contact for supporter access (UR7) -->
+          <label for="account-emergency">Emergency Contact (optional):</label>
+          <input type="text" id="account-emergency" name="account-emergency" placeholder="Name or email">
+          
           <button type="submit">Schedule Appointment</button>
         </form>
       </section>
@@ -110,18 +119,18 @@
           <fieldset>
             <legend>Select your reminder method:</legend>
             <label>
-              <input type="radio" name="auto-reminder-method" value="email" checked /> Email
+              <input type="radio" name="auto-reminder-method" value="email" checked> Email
             </label>
             <label>
-              <input type="radio" name="auto-reminder-method" value="text" /> Text
+              <input type="radio" name="auto-reminder-method" value="text"> Text
             </label>
             <label>
-              <input type="radio" name="auto-reminder-method" value="chat" /> Chat
+              <input type="radio" name="auto-reminder-method" value="chat"> Chat
             </label>
           </fieldset>
 
-          <label for="reminder-time">Reminder Time (e.g., 30 minutes before):</label>
-          <input type="text" id="reminder-time" name="reminder-time" placeholder="Enter time" />
+          <label for="reminder-time">Reminder Time (e.g., "30 minutes before"):</label>
+          <input type="text" id="reminder-time" name="reminder-time" placeholder="Enter time" required>
 
           <button type="submit">Set Reminder</button>
         </form>
