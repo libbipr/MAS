@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Responsive design meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessible Medical & Counselling Appointments</title>
+  <link rel="stylesheet" href="style.css">
+  <!--
+    Note: For data privacy, HIPAA compliance, and secure login, back‑end code and proper encryption are required.
+    This static site is a front‑end demonstration only.
+  -->
+</head>
+<body>
+  <!-- Header with simple navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#booking">Book Appointment</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><a href="#support">Chat Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Accessible Appointment Booking Section -->
+    <section id="booking" aria-labelledby="booking-heading">
+      <h2 id="booking-heading">Book an Appointment</h2>
+      <p>Follow these simple steps to schedule your medical or counselling appointment:</p>
+      <form action="/submit-appointment" method="POST">
+        <!-- Appointment type selection -->
+        <label for="appointment-type">Appointment Type:</label>
+        <select id="appointment-type" name="appointment-type" required>
+          <option value="">-- Select One --</option>
+          <option value="medical">Medical</option>
+          <option value="counselling">Counselling</option>
+        </select>
+        
+        <!-- Date and time selection -->
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" name="date" required>
+        
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" name="time" required>
+        
+        <!-- Communication options for reminders (UR2, UR5) -->
+        <fieldset>
+          <legend>Preferred Reminder Method:</legend>
+          <label>
+            <input type="radio" name="reminder" value="email" checked> Email
+          </label>
+          <label>
+            <input type="radio" name="reminder" value="text"> Text
+          </label>
+          <label>
+            <input type="radio" name="reminder" value="chat"> Chat
+          </label>
+        </fieldset>
+        
+        <!-- Submit button (UR1, UR6) -->
+        <button type="submit">Submit Appointment</button>
+      </form>
+      <!-- Wait time tracker (UR3) -->
+      <p id="wait-time">Estimated wait time: <strong>15 minutes</strong></p>
+    </section>
+
+    <!-- Resources Section (BR3, UR4, UR8) -->
+    <section id="resources" aria-labelledby="resources-heading">
+      <h2 id="resources-heading">Resources</h2>
+      <article>
+        <h3>What to Expect During Your Appointment</h3>
+        <p>This resource explains the step‑by‑step process of a medical appointment using plain language and visuals.</p>
+        <a href="resource-appointment.html">Read More</a>
+      </article>
+      <article>
+        <h3>Self‑Advocacy in Medical Settings</h3>
+        <p>Learn tips on communicating your needs and self‑advocacy techniques for both medical and counselling sessions.</p>
+        <a href="resource-advocacy.html">Read More</a>
+      </article>
+    </section>
+
+    <!-- Secure Login Section (BR4) -->
+    <section id="login" aria-labelledby="login-heading">
+      <h2 id="login-heading">User Login</h2>
+      <form action="/login" method="POST">
+        <label for="username">Username or Email:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Login</button>
+      </form>
+      <p><a href="forgot-password.html">Forgot your password?</a></p>
+    </section>
+
+    <!-- 24/7 Chat Support Section (UR9) -->
+    <section id="support" aria-labelledby="support-heading">
+      <h2 id="support-heading">24/7 Online Chat Support</h2>
+      <p>If you have questions or need help with booking, please use our live chat support.</p>
+      <!-- Chat widget placeholder -->
+      <div class="chat-widget">
+        <p>Chat widget coming soon.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Accessible Medical Scheduling</p>
+  </footer>
+</body>
+</html>
