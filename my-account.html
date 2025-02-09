@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Responsive design meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Account - Accessible Medical Scheduling</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // Simulate secure login using dummy credentials.
+    // (For demonstration only. Real secure login requires server‑side validation.)
+    function loginUser(event) {
+      event.preventDefault();
+      const username = document.getElementById('account-username').value;
+      const password = document.getElementById('account-password').value;
+      
+      // Dummy credentials for simulation
+      if (username === 'user' && password === 'password') {
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+      } else {
+        alert('Invalid username or password.');
+      }
+    }
+
+    // Simulate setting auto reminders.
+    function setAutoReminder(event) {
+      event.preventDefault();
+      const reminderMethod = document.querySelector('input[name="auto-reminder-method"]:checked').value;
+      const reminderTime = document.getElementById('reminder-time').value;
+      if (reminderTime.trim() === '') {
+        alert('Please enter the reminder time.');
+        return;
+      }
+      // In a real system, this would trigger backend scheduling logic.
+      alert('Auto reminder set via ' + reminderMethod + ' ' + reminderTime + ' before your appointment.');
+    }
+
+    // Simulate appointment scheduling.
+    function scheduleAppointment(event) {
+      event.preventDefault();
+      const appointmentType = document.getElementById('account-appointment-type').value;
+      const appointmentDate = document.getElementById('account-date').value;
+      const appointmentTime = document.getElementById('account-time').value;
+      
+      if (!appointmentType || !appointmentDate || !appointmentTime) {
+        alert('Please complete all appointment fields.');
+        return;
+      }
+      // In a real system, you would send this data to a secure server.
+      alert('Appointment for ' + appointmentType + ' scheduled on ' + appointmentDate + ' at ' + appointmentTime + '.');
+    }
+  </script>
+</head>
+<body>
+  <!-- Header with navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="my-account.html">My Account</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Secure Login Section -->
+    <section id="login-section">
+      <h2>Secure Login</h2>
+      <form onsubmit="loginUser(event)">
+        <label for="account-username">Username or Email:</label>
+        <input type="text" id="account-username" name="account-username" required />
+
+        <label for="account-password">Password:</label>
+        <input type="password" id="account-password" name="account-password" required />
+
+        <button type="submit">Login</button>
+      </form>
+    </section>
+
+    <!-- Dashboard: Visible after successful login -->
+    <section id="dashboard" style="display: none;">
+      <h2>Welcome to Your Account</h2>
+      
+      <!-- Appointment Scheduling Section -->
+      <section id="account-appointment">
+        <h3>Schedule an Appointment</h3>
+        <form onsubmit="scheduleAppointment(event)">
+          <label for="account-appointment-type">Appointment Type:</label>
+          <select id="account-appointment-type" name="account-appointment-type" required>
+            <option value="">-- Select One --</option>
+            <option value="medical">Medical</option>
+            <option value="counselling">Counselling</option>
+          </select>
+
+          <label for="account-date">Preferred Date:</label>
+          <input type="date" id="account-date" name="account-date" required />
+
+          <label for="account-time">Preferred Time:</label>
+          <input type="time" id="account-time" name="account-time" required />
+
+          <button type="submit">Schedule Appointment</button>
+        </form>
+      </section>
+
+      <!-- Auto Reminders Section -->
+      <section id="auto-reminders">
+        <h3>Set Up Auto Reminders</h3>
+        <form onsubmit="setAutoReminder(event)">
+          <fieldset>
+            <legend>Select your reminder method:</legend>
+            <label>
+              <input type="radio" name="auto-reminder-method" value="email" checked /> Email
+            </label>
+            <label>
+              <input type="radio" name="auto-reminder-method" value="text" /> Text
+            </label>
+            <label>
+              <input type="radio" name="auto-reminder-method" value="chat" /> Chat
+            </label>
+          </fieldset>
+
+          <label for="reminder-time">Reminder Time (e.g., 30 minutes before):</label>
+          <input type="text" id="reminder-time" name="reminder-time" placeholder="Enter time" />
+
+          <button type="submit">Set Reminder</button>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Accessible Medical Scheduling</p>
+  </footer>
+</body>
+</html>
