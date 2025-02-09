@@ -14,31 +14,98 @@ body {
   padding: 1em;
 }
 
-/* Header and navigation styling */
-header {
+/* Grid Container for layout */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "main jump"
+    "footer footer";
+  grid-template-columns: 1fr 250px;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* Header styling */
+.header {
+  grid-area: header;
   background-color: #4a90e2; /* Muted blue for accessibility */
   padding: 1em;
 }
 
-nav ul {
+/* Navigation (Horizontal Nav Bar) */
+.horizontal-nav {
   list-style: none;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
 }
 
-nav li {
+.horizontal-nav li {
   margin: 0 1em;
 }
 
-nav a {
+.horizontal-nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  padding: 0.5em;
+  transition: background-color 0.3s ease;
 }
 
+.horizontal-nav a:hover,
+.horizontal-nav a:focus {
+  background-color: #3a78c2;
+  border-radius: 4px;
+}
+
+/*Dropdown*/
+.horizontal-nav li.dropdown{
+  position: relative;
+}
+
+.horizontal-nav li.dropdown .dropbtn{
+  display: block;
+  padding: 0.5em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.horizontal-nav li.dropdown .dropdown-content{
+  display:none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #4a90e2;
+  min-width: 150px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.horizontal-nav li.dropdown .dropdown-content li{
+  margin: 0;
+}
+
+.horizontal-nav li.dropdown .dropdown-content li a{
+  color: #fff;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  display: block;
+}
+
+.horizontal-nav li.dropdown .dropdown-content li a:hover {
+  background-color: #3a78c2;
+}
+
+.horizontal-nav li.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
 /* Main content styling */
-main {
+.main-content {
+  grid-area: main;
+  padding: 1em;
   margin-top: 1em;
 }
 
@@ -50,38 +117,10 @@ section, article {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Headings with accessible contrast */
+/* Headings styling */
 h1, h2, h3 {
   margin-bottom: 0.5em;
   color: #4a90e2;
-}
-
-/* Form element styling */
-label, legend {
-  font-weight: bold;
-  margin-top: 1em;
-  display: block;
-}
-
-input, select, button {
-  width: 100%;
-  padding: 0.5em;
-  margin-top: 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-button {
-  background-color: #4a90e2;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 1em;
-}
-
-button:hover,
-button:focus {
-  background-color: #3a78c2;
 }
 
 /* Chat widget placeholder styling */
@@ -94,75 +133,96 @@ button:focus {
 }
 
 /* Footer styling */
-footer {
+.footer {
+  grid-area: footer;
+  background-color: #4a90e2;
+  color: #fff;
   text-align: center;
-  padding: 1em 0;
-  border-top: 1px solid #ccc;
+  padding: 1em;
   margin-top: 2em;
   font-size: 0.9em;
 }
 
+/* Back to Top Button styling */
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+
+/* Sidebar ("Jump To") styling */
+.jump-to {
+  grid-area: jump;
+  background-color: #3a78c2;
+  color: white;
+  padding: 1em;
+  /* On desktop, the sidebar remains distinct */
+}
+
+.jump-to h2 {
+  margin-bottom: 0.5em;
+  color: whitesmoke;
+}
+
+.jump-to ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.jump-to li {
+  margin-bottom: 0.5em;
+}
+
+.jump-to a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.jump-to a:hover,
+.jump-to a:focus {
+  color: #ccc;
+}
+
 /* Responsive design adjustments */
 @media (max-width: 768px) {
-  nav ul {
+  .grid-container {
+    grid-template-areas:
+      "header"
+      "main"
+      "jump"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+  }
+  
+  .horizontal-nav {
     flex-direction: column;
     align-items: center;
   }
   
-  input, select, button {
-    width: 90%;
-    margin: 0.5em auto;
+  .horizontal-nav li {
+    margin: 0.5em 0;
+  }
+  
+  /* In mobile view, adjust sidebar styling */
+  .jump-to {
+    border-top: 1px solid #ccc;
+    margin-top: 1em;
   }
 }
-
-/*Go to top button design*/
-#myBtn {
-  display: none; 
-  position: fixed; 
-  bottom: 20px; 
-  right: 30px; 
-  z-index: 99; 
-  border: none; 
-  outline: none; 
-  background-color: blue; 
-  color: white; 
-  cursor: pointer; 
-  padding: 15px; 
-  border-radius: 10px; 
-  font-size: 18px; 
-}
-
-#myBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
-}
-
-/*Horizontal nav bar styling*/
-
-.horizontal-nav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;  /* Centers the nav items horizontally */
-  background-color: #4a90e2;  /* Muted blue background */
-}
-
-.horizontal-nav li {
-  margin: 0;
-  padding: 0;
-}
-
-.horizontal-nav li a {
-  display: block;
-  padding: 1em;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.horizontal-nav li a:hover,
-.horizontal-nav li a:focus {
-  background-color: #3a78c2;  /* Darker shade for hover/focus */
-}
-
