@@ -7,8 +7,8 @@
   <title>Accessible Medical & Counselling Appointments</title>
   <link rel="stylesheet" href="style.css">
   <!--
-    Note: For data privacy, HIPAA compliance, and secure login, back‑end code and proper encryption are required.
-    This static site is a front‑end demonstration only.
+    Note: For data privacy and HIPAA compliance, secure login and auto reminders,
+    additional server‑side implementation is required.
   -->
 </head>
 <body>
@@ -16,9 +16,9 @@
   <header>
     <nav>
       <ul>
-        <li><a href="#booking">Book Appointment</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="my-account.html">My Account</a></li>
         <li><a href="#resources">Resources</a></li>
-        <li><a href="#login">Login</a></li>
         <li><a href="#support">Chat Support</a></li>
       </ul>
     </nav>
@@ -29,7 +29,7 @@
     <section id="booking" aria-labelledby="booking-heading">
       <h2 id="booking-heading">Book an Appointment</h2>
       <p>Follow these simple steps to schedule your medical or counselling appointment:</p>
-      <form action="/submit-appointment" method="POST">
+      <form action="my-account.html" method="GET">
         <!-- Appointment type selection -->
         <label for="appointment-type">Appointment Type:</label>
         <select id="appointment-type" name="appointment-type" required>
@@ -45,7 +45,7 @@
         <label for="time">Preferred Time:</label>
         <input type="time" id="time" name="time" required>
         
-        <!-- Communication options for reminders (UR2, UR5) -->
+        <!-- Communication options for reminders -->
         <fieldset>
           <legend>Preferred Reminder Method:</legend>
           <label>
@@ -59,14 +59,18 @@
           </label>
         </fieldset>
         
-        <!-- Submit button (UR1, UR6) -->
+        <!-- Optional: Emergency contact supporter (UR7) -->
+        <label for="emergency-contact">Emergency Contact (optional):</label>
+        <input type="text" id="emergency-contact" name="emergency-contact" placeholder="Name or email">
+        
+        <!-- Submit button -->
         <button type="submit">Submit Appointment</button>
       </form>
-      <!-- Wait time tracker (UR3) -->
+      <!-- Wait time tracker (placeholder) -->
       <p id="wait-time">Estimated wait time: <strong>15 minutes</strong></p>
     </section>
 
-    <!-- Resources Section (BR3, UR4, UR8) -->
+    <!-- Resources Section -->
     <section id="resources" aria-labelledby="resources-heading">
       <h2 id="resources-heading">Resources</h2>
       <article>
@@ -81,22 +85,7 @@
       </article>
     </section>
 
-    <!-- Secure Login Section (BR4) -->
-    <section id="login" aria-labelledby="login-heading">
-      <h2 id="login-heading">User Login</h2>
-      <form action="/login" method="POST">
-        <label for="username">Username or Email:</label>
-        <input type="text" id="username" name="username" required>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        
-        <button type="submit">Login</button>
-      </form>
-      <p><a href="forgot-password.html">Forgot your password?</a></p>
-    </section>
-
-    <!-- 24/7 Chat Support Section (UR9) -->
+    <!-- Chat Support Section -->
     <section id="support" aria-labelledby="support-heading">
       <h2 id="support-heading">24/7 Online Chat Support</h2>
       <p>If you have questions or need help with booking, please use our live chat support.</p>
