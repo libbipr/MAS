@@ -22,51 +22,6 @@
   </header>
 
   <main>
-    <!-- Accessible Appointment Booking Section -->
-    <section id="booking" aria-labelledby="booking-heading">
-      <h2 id="booking-heading">Book an Appointment</h2>
-      <p>Follow these simple steps to schedule your medical or counselling appointment:</p>
-      <form action="my-account.html" method="GET">
-      <!-- Appointment type selection -->
-        <label for="appointment-type">Appointment Type:</label>
-        <select id="appointment-type" name="appointment-type" required>
-          <option value="">-- Select One --</option>
-          <option value="medical">Medical</option>
-          <option value="counselling">Counselling</option>
-        </select>
-        
-      <!-- Date and time selection -->
-        <label for="date">Preferred Date:</label>
-        <input type="date" id="date" name="date" required>
-        
-        <label for="time">Preferred Time:</label>
-        <input type="time" id="time" name="time" required>
-        
-      <!-- Communication options for reminders -->
-        <fieldset>
-          <legend>Preferred Reminder Method:</legend>
-          <label>
-            <input type="radio" name="reminder" value="email" checked> Email
-          </label>
-          <label>
-            <input type="radio" name="reminder" value="text"> Text
-          </label>
-          <label>
-            <input type="radio" name="reminder" value="chat"> Chat
-          </label>
-        </fieldset>
-        
-        <!-- Optional: Emergency contact supporter (UR7) -->
-        <label for="emergency-contact">Emergency Contact (optional):</label>
-        <input type="text" id="emergency-contact" name="emergency-contact" placeholder="Name or email">
-        
-        <!-- Submit button -->
-        <button type="submit">Submit Appointment</button>
-      </form>
-      <!-- Wait time tracker (placeholder) -->
-      <p id="wait-time">Estimated wait time: <strong>15 minutes</strong></p>
-    </section>
-
     <!-- Resources Section -->
     <section id="resources" aria-labelledby="resources-heading">
       <h2 id="resources-heading">Resources</h2>
