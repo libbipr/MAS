@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <script>
     // Simulated secure login using dummy credentials.
-    // (For demonstration only. In a real application, use server‑side authentication.)
+    // (For demonstration only) username= user, passw= password
     function loginUser(event) {
       event.preventDefault();
       const username = document.getElementById('account-username').value;
@@ -32,7 +32,7 @@
         alert('Please enter the reminder time.');
         return;
       }
-      // In a real system, this would trigger backend scheduling logic.
+      // Trigger backend scheduling logic
       alert('Auto reminder set via ' + reminderMethod + ' ' + reminderTime + ' before your appointment.');
     }
 
@@ -48,7 +48,7 @@
         alert('Please complete all appointment fields.');
         return;
       }
-      // In a real system, you would send this data to a secure server.
+      // Data to be sent to a secure server 
       let message = 'Appointment for ' + appointmentType + ' scheduled on ' + appointmentDate + ' at ' + appointmentTime + '.';
       if (emergencyContact.trim() !== '') {
         message += '\nEmergency Contact: ' + emergencyContact;
