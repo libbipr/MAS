@@ -5,49 +5,196 @@
   <!-- Responsive design meta tag -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>What to Expect During Your Appointment</title>
-  <img src="logo.svg" alt="Medical Access Support Logo">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header with navigation -->
-  <header>
-    <nav>
+  <!-- Grid Container -->
+  <div class="grid-container">
+    <!-- Header with Navigation -->
+    <header class="header">
+      <div class="logo-container" style="text-align: center; margin-bottom: 1em;">
+        <img src="logo.svg" alt="Medical Access Support Logo" class="centered-logo">
+      </div>
+      <nav>
+        <ul class="horizontal-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="my-account.html">My Account</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Resources</a>
+            <ul class="dropdown-content">
+              <li><a href="resource-advocacy.html">Self Advocacy</a></li>
+              <li><a href="resource-appointment.html">Appointment Info</a></li>
+            </ul>
+          </li>
+          <li><a href="#chat">Chat Support</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <article id="what-to-expect">
+        <h1>What to Expect During Your Appointment</h1>
+        <p>
+          Our appointment process is designed to be simple and accessible:
+        </p>
+        <ol>
+          <li>
+            <strong>Check In:</strong> Upon arrival, you will check in at the reception desk.
+          </li>
+          <li>
+            <strong>Initial Assessment:</strong> A preliminary conversation will help determine your needs.
+          </li>
+          <li>
+            <strong>Examination or Consultation:</strong> Depending on your appointment type, you will receive a thorough assessment.
+          </li>
+          <li>
+            <strong>Follow‑Up:</strong> Instructions for follow‑up appointments or next steps will be provided.
+          </li>
+        </ol>
+      </article>
+
+      <!-- Video Guide Section -->
+      <section id="video-guide">
+        <h2>Video Guide</h2>
+        <p>Here is a more detailed video guide for GP appointments and the different types of appointments.</p>
+        <div class="video-container" style="max-width: 100%; height: auto;">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/619V11fX27M?si=Su33cklModQDFVe3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <!-- Interactive Appointment Timeline -->
+      <section id="interactive-timeline">
+        <h2>Interactive Appointment Timeline</h2>
+        <p>Click on each step below to learn more about what happens at each stage of your appointment.</p>
+        <div class="timeline">
+          <div class="timeline-item" onclick="toggleDetail(this)">
+            <div class="timeline-step">1</div>
+            <div class="timeline-content">
+              <h3>Check In</h3>
+              <p class="timeline-detail" style="display: none;">Upon arrival, you will check in at the reception desk. Prepare your ID, insurance, and any relevant documents.</p>
+            </div>
+          </div>
+          <div class="timeline-item" onclick="toggleDetail(this)">
+            <div class="timeline-step">2</div>
+            <div class="timeline-content">
+              <h3>Initial Assessment</h3>
+              <p class="timeline-detail" style="display: none;">A brief conversation with the healthcare provider will help assess your needs and determine the next steps.</p>
+            </div>
+          </div>
+          <div class="timeline-item" onclick="toggleDetail(this)">
+            <div class="timeline-step">3</div>
+            <div class="timeline-content">
+              <h3>Examination / Consultation</h3>
+              <p class="timeline-detail" style="display: none;">Depending on your appointment type, you will receive a thorough examination or consultation.</p>
+            </div>
+          </div>
+          <div class="timeline-item" onclick="toggleDetail(this)">
+            <div class="timeline-step">4</div>
+            <div class="timeline-content">
+              <h3>Follow‑Up</h3>
+              <p class="timeline-detail" style="display: none;">Your provider will give you instructions for any necessary follow‑up appointments or next steps.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+          <li>
+            <strong>How early should I arrive?</strong>
+            <p>It is wise to arrive at least 15 minutes before your scheduled appointment to allow time for check-in and any necessary paperwork.</p>
+          </li>
+          <li>
+            <strong>What if I need to cancel or reschedule?</strong>
+            <p>You can contact our support team through the Chat Support section or call the clinic directly.</p>
+          </li>
+          <li>
+            <strong>Are accommodations available for sensory needs?</strong>
+            <p>Yes. Most, if not all, medical centers strive to provide a calm and supportive environment.</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Back to Top Button (matching the index style) -->
+      <button id="back-to-top" onclick="scrollToTop()">Back to Top</button>
+    </main>
+
+    <!-- Sidebar Navigation -->
+    <aside class="jump-to">
+      <h2>Jump To</h2>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="my-account.html">My Account</a></li>
+        <li><a href="#what-to-expect">What To Expect</a></li>
+        <li><a href="#video-guide">Video Guide</a></li>
+        <li><a href="#interactive-timeline">Timeline</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#chat">Chat Support</a></li>
       </ul>
-    </nav>
-  </header>
+    </aside>
 
-  <main>
-    <article>
-      <h1>What to Expect During Your Appointment</h1>
-      <p>
-        Our appointment process is designed to be simple and accessible:
-      </p>
-      <ol>
-        <li>
-          <strong>Check In:</strong> Upon arrival, you will check in at the reception desk.
-        </li>
-        <li>
-          <strong>Initial Assessment:</strong> A preliminary conversation will help determine your needs.
-        </li>
-        <li>
-          <strong>Examination or Consultation:</strong> Depending on your appointment type, you will receive a thorough assessment.
-        </li>
-        <li>
-          <strong>Follow‑Up:</strong> Instructions for follow‑up appointments or next steps will be provided.
-        </li>
-      </ol>
-      <p>Here is a more detailed video guide for GP appointments and what the different types of appointments.</p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/619V11fX27M?si=Su33cklModQDFVe3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</iframe>
-    </article>
-  </main>
+    <!-- Chat Support Section (inside the grid, above the footer) -->
+    <section id="chat" class="chat-support">
+      <h2>Chat Support</h2>
+      <div id="chat-log" style="border: 1px solid #ccc; padding: 10px; height: 150px; overflow-y: scroll;">
+        <p>Welcome to our support chat. How can we help you today?</p>
+      </div>
+      <form id="chat-form" onsubmit="sendChatMessage(event)">
+        <input type="text" id="chat-input" placeholder="Type your message here..." style="width: 80%;" required>
+        <button type="submit">Send</button>
+      </form>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Medical Access Support</p>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 Medical Access Support</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript for Timeline, Back to Top, and Chat Support -->
+  <script>
+    // Smooth scroll back to top functionality
+    function scrollToTop(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Toggle timeline detail visibility
+    function toggleDetail(item){
+      const detail = item.querySelector('.timeline-detail');
+      if (detail.style.display === 'none') {
+        detail.style.display = 'block';
+      } else {
+        detail.style.display = 'none';
+      }
+    }
+
+    // Dummy chat support function
+    function sendChatMessage(event){
+      event.preventDefault();
+      const input = document.getElementById('chat-input');
+      const message = input.value.trim();
+      if (message === "") return;
+
+      // Append user's message to chat log
+      const chatLog = document.getElementById('chat-log');
+      const userMsg = document.createElement('p');
+      userMsg.style.textAlign = 'right';
+      userMsg.textContent = "You: " + message;
+      chatLog.appendChild(userMsg);
+
+      input.value = "";
+
+      // Simulate a support reply after a delay
+      setTimeout(() => {
+        const reply = document.createElement('p');
+        reply.style.textAlign = 'left';
+        reply.textContent = "Support: Thanks for reaching out! We will get back to you shortly.";
+        chatLog.appendChild(reply);
+        // Scroll to the bottom of the chat log
+        chatLog.scrollTop = chatLog.scrollHeight;
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
-
