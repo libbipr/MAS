@@ -6,30 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>What to Expect During Your Appointment</title>
   <link rel="stylesheet" href="style.css">
+  <div class="logo-container">
+    <img src="logo.svg" alt="Medical Access Support Logo" class="site-logo">
+  </div>
 </head>
+
 <body>
-  <!-- Grid Container -->
-  <div class="grid-container">
-    <!-- Header with Navigation -->
+    <div class="grid-container">
     <header class="header">
-      <div class="logo-container" style="text-align: center; margin-bottom: 1em;">
-        <img src="logo.svg" alt="Medical Access Support Logo" class="centered-logo">
-      </div>
-      <nav>
-        <ul class="horizontal-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="my-account.html">My Account</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropbtn">Resources</a>
-            <ul class="dropdown-content">
-              <li><a href="resource-advocacy.html">Self Advocacy</a></li>
-              <li><a href="resource-appointment.html">Appointment Info</a></li>
+        <div class="header-inner">
+          <nav>
+            <ul class="horizontal-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="my-account.html">My Account</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropbtn">Resources</a>
+                <ul class="dropdown-content">
+                  <li><a href="resource-advocacy.html">Self Advocacy</a></li>
+                  <li><a href="resource-appointment.html">Appointment Info</a></li>
+                </ul>
+              </li>
+              <li><a href="#chat">Chat Support</a></li>
             </ul>
-          </li>
-          <li><a href="#chat">Chat Support</a></li>
-        </ul>
-      </nav>
-    </header>
+          </nav>
+        </div>
+      </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="jump-to">
+        <h2 style="color: white;">Jump To</h2>
+      <ul>
+        <li><a href="#what-to-expect">What To Expect</a></li>
+        <li><a href="#video-guide">Video Guide</a></li>
+        <li><a href="#interactive-timeline">Timeline</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#chat">Chat Support</a></li>
+      </ul>
+    </aside>
+      
 
     <!-- Main Content -->
     <main class="main-content">
@@ -69,31 +83,31 @@
         <p>Click on each step below to learn more about what happens at each stage of your appointment.</p>
         <div class="timeline">
           <div class="timeline-item" onclick="toggleDetail(this)">
-            <div class="timeline-step">1</div>
+            <div class="timeline-marker">1</div>
             <div class="timeline-content">
               <h3>Check In</h3>
-              <p class="timeline-detail" style="display: none;">Upon arrival, you will check in at the reception desk. Prepare your ID, insurance, and any relevant documents.</p>
+              <p class="timeline-detail">Upon arrival, you will check in at the reception desk. Prepare your ID, insurance, and any relevant documents.</p>
             </div>
           </div>
           <div class="timeline-item" onclick="toggleDetail(this)">
-            <div class="timeline-step">2</div>
+            <div class="timeline-marker">2</div>
             <div class="timeline-content">
               <h3>Initial Assessment</h3>
-              <p class="timeline-detail" style="display: none;">A brief conversation with the healthcare provider will help assess your needs and determine the next steps.</p>
+              <p class="timeline-detail">A brief conversation with the healthcare provider will help assess your needs and determine the next steps.</p>
             </div>
           </div>
           <div class="timeline-item" onclick="toggleDetail(this)">
-            <div class="timeline-step">3</div>
+            <div class="timeline-marker">3</div>
             <div class="timeline-content">
               <h3>Examination / Consultation</h3>
-              <p class="timeline-detail" style="display: none;">Depending on your appointment type, you will receive a thorough examination or consultation.</p>
+              <p class="timeline-detail">Depending on your appointment type, you will receive a thorough examination or consultation.</p>
             </div>
           </div>
           <div class="timeline-item" onclick="toggleDetail(this)">
-            <div class="timeline-step">4</div>
+            <div class="timeline-marker">4</div>
             <div class="timeline-content">
               <h3>Follow‑Up</h3>
-              <p class="timeline-detail" style="display: none;">Your provider will give you instructions for any necessary follow‑up appointments or next steps.</p>
+              <p class="timeline-detail">Your provider will give you instructions for any necessary follow‑up appointments or next steps.</p>
             </div>
           </div>
         </div>
@@ -118,33 +132,39 @@
         </ul>
       </section>
 
-      <!-- Back to Top Button (matching the index style) -->
-      <button id="back-to-top" onclick="scrollToTop()">Back to Top</button>
-    </main>
-
-    <!-- Sidebar Navigation -->
-    <aside class="jump-to">
-      <h2>Jump To</h2>
-      <ul>
-        <li><a href="#what-to-expect">What To Expect</a></li>
-        <li><a href="#video-guide">Video Guide</a></li>
-        <li><a href="#interactive-timeline">Timeline</a></li>
-        <li><a href="#faq">FAQs</a></li>
-        <li><a href="#chat">Chat Support</a></li>
-      </ul>
-    </aside>
-
-    <!-- Chat Support Section (inside the grid, above the footer) -->
+ <!-- Chat Support Section-->
     <section id="chat" class="chat-support">
-      <h2>Chat Support</h2>
-      <div id="chat-log" style="border: 1px solid #ccc; padding: 10px; height: 150px; overflow-y: scroll;">
-        <p>Welcome to our support chat. How can we help you today?</p>
-      </div>
-      <form id="chat-form" onsubmit="sendChatMessage(event)">
-        <input type="text" id="chat-input" placeholder="Type your message here..." style="width: 80%;" required>
-        <button type="submit">Send</button>
-      </form>
-    </section>
+        <h2>Chat Support</h2>
+        <div id="chat-log" style="border: 1px solid #ccc; padding: 10px; height: 150px; overflow-y: scroll;">
+          <p>Welcome to our support chat. How can we help you today?</p>
+        </div>
+        <form id="chat-form" onsubmit="sendChatMessage(event)">
+          <input type="text" id="chat-input" placeholder="Type your message here..." style="width: 80%;" required>
+          <button type="submit">Send</button>
+        </form>
+      </section>
+
+      <!-- Back to Top Button -->
+      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+      <script>
+        let mybutton = document.getElementById("myBtn");
+  
+        window.onscroll = function() {
+          scrollFunction();
+        };
+        function scrollFunction(){
+          if (document.body.scrollTop> 20 || document.documentElement.scrollTop> 20){
+            mybutton.style.display="block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        function topFunction(){
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -152,7 +172,7 @@
     </footer>
   </div>
 
-  <!-- JavaScript for Timeline, Back to Top, and Chat Support -->
+  <!-- JavaScript -->
   <script>
     // Smooth scroll back to top functionality
     function scrollToTop(){
@@ -162,11 +182,8 @@
     // Toggle timeline detail visibility
     function toggleDetail(item){
       const detail = item.querySelector('.timeline-detail');
-      if (detail.style.display === 'none') {
-        detail.style.display = 'block';
-      } else {
-        detail.style.display = 'none';
-      }
+      detail.classList.toggle('active');
+
     }
 
     // Dummy chat support function
