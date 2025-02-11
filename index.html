@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Medical Access Support</title>
   <link rel="stylesheet" href="style.css">
+  <div class="logo-container">
+    <img src="logo.svg" alt="Medical Access Support Logo" class="site-logo">
+  </div>
 </head>
+
 <body>
   <div class="grid-container">
-    <!-- Header with Navigation -->
-    <header class="header">
-      <div class="logo-container" style="text-align: center; margin-bottom: 1em;">
-        <img src="logo.svg" alt="Medical Access Support Logo" class="centered-logo">
-      </div>
+  <header class="header">
+    <div class="header-inner">
       <nav>
         <ul class="horizontal-nav">
           <li><a href="index.html">Home</a></li>
@@ -25,10 +26,12 @@
               <li><a href="resource-appointment.html">Appointment Info</a></li>
             </ul>
           </li>
-          <li><a href="#support">Chat Support</a></li>
+          <li><a href="#chat">Chat Support</a></li>
         </ul>
       </nav>
-    </header>
+    </div>
+  </header>
+  
 
     <!-- Sidebar: Jump To Navigation -->
     <aside class="jump-to">
@@ -84,23 +87,21 @@
         </div>
       </section>
       
-      <!-- Back to Top Button -->
-      <button onclick="topFunction()" id="myBtn" title="Go to top">&#8679;</button>
-      
+      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
       <script>
-        // Get the button
         let mybutton = document.getElementById("myBtn");
-        // When the user scrolls down 20px, show the button
-        window.onscroll = function() { scrollFunction() };
-        function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
+  
+        window.onscroll = function() {
+          scrollFunction();
+        };
+        function scrollFunction(){
+          if (document.body.scrollTop> 20 || document.documentElement.scrollTop> 20){
+            mybutton.style.display="block";
           } else {
             mybutton.style.display = "none";
           }
         }
-        // Scroll to the top when the button is clicked
-        function topFunction() {
+        function topFunction(){
           document.body.scrollTop = 0;
           document.documentElement.scrollTop = 0;
         }
