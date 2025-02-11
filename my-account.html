@@ -6,21 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Account - Accessible Medical Scheduling</title>
   <link rel="stylesheet" href="style.css">
+  <div class="logo-container">
+    <img src="logo.svg" alt="Medical Access Support Logo" class="site-logo">
+  </div>
   </head>
  
  
 <body>
   <div class="grid-container">
-  <!-- Header with navigation -->
-  <header class="header">
-    <div class="logo-container" style="text-align: center; margin-bottom: 1em;">
-      <img src="logo.svg" alt="Medical Access Support Logo" class="centered-logo">
-    </div>
+<header class="header">
+  <div class="header-inner">
     <nav>
       <ul class="horizontal-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="my-account.html">My Account</a></li>
-      
         <li class="dropdown">
           <a href="#" class="dropbtn">Resources</a>
           <ul class="dropdown-content">
@@ -28,10 +27,11 @@
             <li><a href="resource-appointment.html">Appointment Info</a></li>
           </ul>
         </li>
-        <li><a href="#support">Chat Support</a></li>
+        <li><a href="#chat">Chat Support</a></li>
       </ul>
     </nav>
-  </header>
+  </div>
+</header>
 
 <!--Secure Login Section-->
 
@@ -219,12 +219,32 @@
     </ul>
   </section>
 </section>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+  let mybutton = document.getElementById("myBtn");
+
+  window.onscroll = function() {
+    scrollFunction();
+  };
+  function scrollFunction(){
+    if (document.body.scrollTop> 20 || document.documentElement.scrollTop> 20){
+      mybutton.style.display="block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  function topFunction(){
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
   </main>
 
 
 <!--Side Bar-->
   <aside class="jump-to">
-    <h2>Jump To</h2>
+    <h2 style="color: white;">Jump To</h2>
     <ul>
       <li><a href="#login-section">Login</a></li>
       <li><a href="#dashboard">Dashboard</a></li>
