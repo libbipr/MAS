@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Responsive design meta tag -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Logo can also be placed within the header if preferred -->
-  <img src="logo.svg" alt="Medical Access Support Logo">
   <title>Medical Access Support</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Make sure the container class is spelled correctly -->
   <div class="grid-container">
-    
-    <!-- Header with navigation -->
+    <!-- Header with Navigation -->
     <header class="header">
+      <div class="logo-container" style="text-align: center; margin-bottom: 1em;">
+        <img src="logo.svg" alt="Medical Access Support Logo" class="centered-logo">
+      </div>
       <nav>
         <ul class="horizontal-nav">
           <li><a href="index.html">Home</a></li>
           <li><a href="my-account.html">My Account</a></li>
-          <!-- Dropdown for Resources -->
           <li class="dropdown">
             <a href="#" class="dropbtn">Resources</a>
             <ul class="dropdown-content">
@@ -30,15 +29,22 @@
         </ul>
       </nav>
     </header>
-    
-    
-    <!-- Main content -->
+
+    <!-- Sidebar: Jump To Navigation -->
+    <aside class="jump-to">
+      <h2 style="color: white;">Jump To</h2>
+      <ul>
+        <li><a href="#resources">Resources Overview</a></li>
+        <li><a href="#support">Chat Support</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
     <main class="main-content">
       <h2>Our Aim</h2>
       <p>
         This website is dedicated to helping students, especially those with autism and other learning difficulties, access the medical support they need with confidence. Our platform provides clear guidance, resources, scheduling help, and connections to autism‑friendly healthcare providers, ensuring that every student and young adult can navigate the healthcare system with ease. We strive to create an inclusive and supportive space where students/young adults and caregivers can find practical solutions for better medical access.
       </p>
-      
       <h2>What We Provide</h2>
       <p>
         Medical Access Support is a user‑friendly platform designed to help you easily book and manage your medical and counseling appointments. The website offers:
@@ -54,7 +60,7 @@
         With a focus on accessibility, privacy, and ease of use, our platform ensures that you can navigate your healthcare needs confidently and comfortably.
       </p>
       
-      <!-- Mini Resources Section -->
+      <!-- Resources Section -->
       <section id="resources" aria-labelledby="resources-heading">
         <h2 id="resources-heading">Resources</h2>
         <article>
@@ -73,20 +79,19 @@
       <section id="support" aria-labelledby="support-heading">
         <h2 id="support-heading">24/7 Online Chat Support</h2>
         <p>If you have questions or need help with booking, please use our live chat support.</p>
-        <!-- Chat widget placeholder -->
         <div class="chat-widget">
           <p>Chat widget coming soon.</p>
         </div>
       </section>
       
-      <!-- Back to Top Button and its JS Functionality -->
+      <!-- Back to Top Button -->
+      <button onclick="topFunction()" id="myBtn" title="Go to top">&#8679;</button>
+      
       <script>
-        // Get the button:
+        // Get the button
         let mybutton = document.getElementById("myBtn");
-      
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-      
+        // When the user scrolls down 20px, show the button
+        window.onscroll = function() { scrollFunction() };
         function scrollFunction() {
           if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             mybutton.style.display = "block";
@@ -94,30 +99,18 @@
             mybutton.style.display = "none";
           }
         }
-      
-        // When the user clicks on the button, scroll to the top of the document
+        // Scroll to the top when the button is clicked
         function topFunction() {
-          document.body.scrollTop = 0; // For Safari
-          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
         }
       </script>
-      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </main>
-    
-    <!-- Sidebar: Jump To Section -->
-    <aside class="jump-to">
-      <h2>Jump To</h2>
-      <ul>
-        <li><a href="#resources">Resources Overview</a></li>
-        <li><a href="#support">Chat Support</a></li>
-      </ul>
-    </aside>
-    
+
     <!-- Footer -->
     <footer class="footer">
       <p>&copy; 2025 Medical Access Support</p>
     </footer>
-    
   </div>
 </body>
 </html>
