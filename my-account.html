@@ -5,90 +5,107 @@
   <!-- Responsive design meta tag -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Account - Accessible Medical Scheduling</title>
-  <img src="logo.svg" alt="Medical Access Support Logo">
   <link rel="stylesheet" href="style.css">
-  <script>
-    // Simulated secure login using dummy credentials.
-    // (For demonstration only) username= user, passw= password
-    function loginUser(event) {
-      event.preventDefault();
-      const username = document.getElementById('account-username').value;
-      const password = document.getElementById('account-password').value;
-      
-      // Dummy credentials for simulation
-      if (username === 'user' && password === 'password') {
-        document.getElementById('login-section').style.display = 'none';
-        document.getElementById('dashboard').style.display = 'block';
-      } else {
-        alert('Invalid username or password.');
-      }
-    }
-
-    // Simulate setting auto reminders.
-    function setAutoReminder(event) {
-      event.preventDefault();
-      const reminderMethod = document.querySelector('input[name="auto-reminder-method"]:checked').value;
-      const reminderTime = document.getElementById('reminder-time').value;
-      if (reminderTime.trim() === '') {
-        alert('Please enter the reminder time.');
-        return;
-      }
-      // Trigger backend scheduling logic
-      alert('Auto reminder set via ' + reminderMethod + ' ' + reminderTime + ' before your appointment.');
-    }
-
-    // Simulate appointment scheduling.
-    function scheduleAppointment(event) {
-      event.preventDefault();
-      const appointmentType = document.getElementById('account-appointment-type').value;
-      const appointmentDate = document.getElementById('account-date').value;
-      const appointmentTime = document.getElementById('account-time').value;
-      const emergencyContact = document.getElementById('account-emergency').value;
-      
-      if (!appointmentType || !appointmentDate || !appointmentTime) {
-        alert('Please complete all appointment fields.');
-        return;
-      }
-      // Data to be sent to a secure server 
-      let message = 'Appointment for ' + appointmentType + ' scheduled on ' + appointmentDate + ' at ' + appointmentTime + '.';
-      if (emergencyContact.trim() !== '') {
-        message += '\nEmergency Contact: ' + emergencyContact;
-      }
-      alert(message);
-    }
-  </script>
-</head>
+  </head>
+ 
+ 
 <body>
+  <div class="grid-container">
   <!-- Header with navigation -->
-  <header>
+  <header class="header">
+    <div class="logo-container" style="text-align: center; margin-bottom: 1em;">
+      <img src="logo.svg" alt="Medical Access Support Logo" class="centered-logo">
+    </div>
     <nav>
-      <ul>
+      <ul class="horizontal-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="my-account.html">My Account</a></li>
+      
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Resources</a>
+          <ul class="dropdown-content">
+            <li><a href="resource-advocacy.html">Self Advocacy</a></li>
+            <li><a href="resource-appointment.html">Appointment Info</a></li>
+          </ul>
+        </li>
+        <li><a href="#support">Chat Support</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <!-- Secure Login Section -->
+<!--Secure Login Section-->
+
+  <main class="main-content">
     <section id="login-section">
       <h2>Secure Login</h2>
       <form onsubmit="loginUser(event)">
         <label for="account-username">Username or Email:</label>
         <input type="text" id="account-username" name="account-username" required>
-
         <label for="account-password">Password:</label>
         <input type="password" id="account-password" name="account-password" required>
-
         <button type="submit">Login</button>
       </form>
     </section>
 
-    <!-- Dashboard: Visible after successful login -->
-    <section id="dashboard" style="display: none;">
+<!--Dashboard- Visible After Successful Login-->
+
+    <section id="dashboard" style="display:none;">
       <h2>Welcome to Your Account</h2>
+<!--Log Out Button-->
+      <button onclick="logoutUser()" style="float: right; margin-top: -40px; background-color: #e74c3c; color: #fff; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px;">Log Out</button>
+
+<!--Profile and Account Settings-->
+      <section id="profile">
+        <h3>Profile & Account Settings</h3>
+        <form onsubmit="saveProfile(event)">
+          <label for="full-name">Full Name:</label>
+          <input type="text" id="full-name" name="full-name" value="John Doe" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" value="john@example.com" required>
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" value="123-456-7890">
+          <button type="submit">Save Profile</button>
+        </form>
+      </section>
+
+<!--Notifications Section-->
+      <section id="notifications">
+        <h3>Notifications</h3>
+        <ul>
+          <li>You have an upcoming appointment reminder.</li>
+          <li>New test results are available</li>
+        </ul>
+      </section>
       
-      <!-- Appointment Scheduling Section -->
+<!--Upcoming Appointments-->
+      <section id="upcoming-appointments">
+        <h3>Upcoming Appointments</h3>
+        <table border="1" cellpading="5" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Location</th>
+              <th>Doctor</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>20-03-2025</td>
+            <td>09:00 AM</td>
+            <td>Main Hospital</td>
+            <td>Dr. Brown</td>
+            <td>
+              <button onclick="cancelAppointment(this)">Cancel</button>
+              <button onclick="rescheduleAppointment(this)">Reschedule</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </section>
+
+<!--Appointment Scheduling Section-->
       <section id="account-appointment">
         <h3>Schedule an Appointment</h3>
         <form onsubmit="scheduleAppointment(event)">
@@ -98,49 +115,250 @@
             <option value="medical">Medical</option>
             <option value="counselling">Counselling</option>
           </select>
-
-          <label for="account-date">Preferred Date:</label>
+          <label for="account-date">Preffered Date:</label>
           <input type="date" id="account-date" name="account-date" required>
-
-          <label for="account-time">Preferred Time:</label>
+          <label for="account-time">Preffered Time:</label>
           <input type="time" id="account-time" name="account-time" required>
-          
-          <!-- Emergency contact for supporter access (UR7) -->
-          <label for="account-emergency">Emergency Contact (optional):</label>
-          <input type="text" id="account-emergency" name="account-emergency" placeholder="Name or email">
-          
+          <label for="account-emergency">Emergency Contact (Optional):</label>
+          <input type="text" id="account-emergency" name="account-emergency" placeholder="Name or Email">
           <button type="submit">Schedule Appointment</button>
         </form>
       </section>
 
-      <!-- Auto Reminders Section -->
+<!--Auto Reminders Section-->
       <section id="auto-reminders">
         <h3>Set Up Auto Reminders</h3>
         <form onsubmit="setAutoReminder(event)">
           <fieldset>
             <legend>Select your reminder method:</legend>
             <label>
-              <input type="radio" name="auto-reminder-method" value="email" checked> Email
+              <input type="radio" name="auto-reminder-method" value="email" checked>Email
             </label>
             <label>
-              <input type="radio" name="auto-reminder-method" value="text"> Text
+              <input type="radio" name="auto-reminder-method" value="text">Text
             </label>
             <label>
-              <input type="radio" name="auto-reminder-method" value="chat"> Chat
+              <input type="radio" name="auto-reminder-method" value="Call">Call
             </label>
           </fieldset>
-
-          <label for="reminder-time">Reminder Time (e.g., "30 minutes before"):</label>
-          <input type="text" id="reminder-time" name="reminder-time" placeholder="Enter time" required>
-
+          <label for="reminder-time">Reminder Time (e.g, "30 Minutes Before"):</label>
+          <input type="text" id="reminder-time" name="reminder-time" placeholder="Enter Time" required>
           <button type="submit">Set Reminder</button>
         </form>
       </section>
+
+<!--Past Appointments Section-->
+      <section id="past-appointments">
+        <h3>Past Appointments</h3>
+        <table border="1" cellpadding="5" cellspacing="0">
+          <thead>
+            <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Doctor</th>
+            <th>Notes</th>
+            <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td contenteditable="true">01-15-2025</td>
+              <td contenteditable="true">10:30 AM</td>
+              <td contenteditable="true">Medical Center</td>
+              <td contenteditable="true">Dr.Smith</td>
+              <td contenteditable="true">Had a follow-up regarding symptoms</td>
+              <td><button onclick="saveAppointment(this)">Save</button></td>
+            </tr>
+            <tr>
+              <td contenteditable="true">12-10-2024</td>
+              <td contenteditable="true">2:00pm</td>
+              <td contenteditable="true">Hospital</td>
+              <td contenteditable="true">Dr. Johnson</td>
+              <td contenteditable="true">Discussed treatment plan</td>
+              <td><button onclick="saveAppointment(this)">Save</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+<!--Health Summary / Medical History-->
+      <h3>Health Summary / Medical History</h3>
+      <p>Enter your health details, allergies, medications, and any important notes about your medical history.</p>
+      <textarea id="health-history" rows="5" style="width: 100%;">Type your health summary here...</textarea>
+      <button onclick="saveHealthSummary()">Save Health Summary</button>
     </section>
+
+<!--Chat Support Section-->
+    <section id="chat">
+      <h3>Chat Support</h3>
+      <div id="chat-log" style="border: 1px solid #ccc; padding: 10px; height: 150px; overflow-y: scroll;">
+      </div>
+      <form id="chat-form" onsubmit="sendChatMessage(event)">
+        <input type="text" id="chat-input" placeholder="Type your message..." style="width: 80%;" required>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+<!--FAQs Section-->
+    <section id="faq">
+    <h3>Frequently Asked Questions</h3>
+    <ul>
+      <li>
+        <strong>How do I Schedule an appointment?</strong>
+        <p>Use the appointment scheduling section about to select a date, time and type of appointment.</p>
+      </li>
+      <li>
+        <strong>How can I update my profile?</strong>
+        <p>You can update your profile information in the Profile & Account Settings section.</p>
+      </li>
+      <li>
+        <strong>What should I do if I have a question?</strong>
+        <p>You can use the Chat Support section to ask your question and recieve a response.</p>
+      </li>
+    </ul>
+  </section>
+</section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Medical Access Support</p>
+
+<!--Side Bar-->
+  <aside class="jump-to">
+    <h2>Jump To</h2>
+    <ul>
+      <li><a href="#login-section">Login</a></li>
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="#account-appointment">Schedule Appointment</a></li>
+      <li><a href="#auto-reminders">Auto Reminders</a></li>
+      <li><a href="#past-appointments">Past Appointments</a></li>
+    </ul>
+  </aside>
+
+<!--Footer-->
+  <footer class="footer">
+    <p>&copy;2025 Medical Access Support</p>
   </footer>
+  </div>
+
+<!--JS at the end for better loading-->
+<script>
+// Secure login function
+  function loginUser(event) {
+    event.preventDefault();
+    const username = document.getElementById('account-username').value;
+    const password = document.getElementById('account-password').value;
+// Dummy credentials for simulation: username "user", password "password"
+    if (username === 'user' && password === 'password') {
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+    } else {
+      alert('Invalid username or password.');
+    }
+  }
+
+//Log out function
+function logoutUser(){
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('login-section').style.display = 'block';
+  //clearing any inout fields
+    document.getElementById('account-username').value = "";
+    document.getElementById('account-password').value = "";
+}
+
+//Profile save function (dummy)
+function saveProfile(event){
+  event.preventDefault();
+  alert("Profile Saved!");
+}
+  
+// Auto reminder function
+  function setAutoReminder(event) {
+    event.preventDefault();
+    const reminderMethod = document.querySelector('input[name="auto-reminder-method"]:checked').value;
+    const reminderTime = document.getElementById('reminder-time').value;
+    if (reminderTime.trim() === '') {
+      alert('Please enter the reminder time.');
+      return;
+    }
+    alert('Auto reminder set via ' + reminderMethod + ' ' + reminderTime + ' before your appointment.');
+  }
+  
+// Appointment scheduling function
+  function scheduleAppointment(event) {
+    event.preventDefault();
+    const appointmentType = document.getElementById('account-appointment-type').value;
+    const appointmentDate = document.getElementById('account-date').value;
+    const appointmentTime = document.getElementById('account-time').value;
+    const emergencyContact = document.getElementById('account-emergency').value;
+    
+    if (!appointmentType || !appointmentDate || !appointmentTime) {
+      alert('Please complete all appointment fields.');
+      return;
+    }
+    let message = 'Appointment for ' + appointmentType + ' scheduled on ' + appointmentDate + ' at ' + appointmentTime + '.';
+    if (emergencyContact.trim() !== '') {
+      message += '\nEmergency Contact: ' + emergencyContact;
+    }
+    alert(message);
+  }
+
+//Save changes in Past Appointment function
+  function saveAppointment(btn){
+    var row = btn.parentElement.parentElement;
+    var date = row.cells[0].innerText;
+    var time = row.cells[1].innerText;
+    var location = row.cells[2].innerText;
+    var doctor = row.cells[3].innerText;
+    var notes = row.cells[4].innerText;
+    alert("Saved Appointment:\nDate: " + date + "\nTime: " + time + "\nLocation: " + location + "\nDoctor: " + doctor + "\nNotes: " + notes);
+  }
+
+//Save health summary function
+  function saveHealthSummary(){
+    const summary = document.getElementById('health-history').value;
+    alert("Health Summary Saved:\n" + summary);
+  }
+
+//Chat support function
+  function sendChatMessage(event){
+    event.preventDefault();
+    const input=document.getElementById('chat-input');
+    const message = input.value.trim();
+    if(message === "")return;
+  }
+
+//Append users message to chat log
+  const chatLog = document.getElementById('chat-log');
+  const userMsg = document.createElement('p');
+  userMsg.style.textAlign = 'right';
+  userMsg.textContent = "You: " + message;
+  chatLog.appendChild(userMsg);
+
+//clear input
+  inut.value = "";
+
+//Simulated reply
+  setTimeout(() => {
+    const reply = document.createElement('p');
+    reply.style.textAlign = 'left';
+    reply.textContent = "Support: Thanks for your question! We'll get back to you shortly.";
+    chatLog.appendChild(reply);
+  //scroll to bottom
+  chatLog.scrollTop = chatLog.scrollHeight;
+  }, 1000);
+
+// Dummy function for upcoming appt actions
+  function cancelAppointment(btn){
+    alert("Appointment Canceled.");
+  }
+
+  function rescheduleAppointment(btn){
+    alert("Reschedule appointment functionality coming soon.");
+  }
+
+</script>
 </body>
 </html>
+
+
+
