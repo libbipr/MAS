@@ -6,25 +6,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Self‑Advocacy in Medical Settings</title>
   <link rel="stylesheet" href="style.css">
-  <img src="logo.svg" alt="Medical Access Support Logo">
+  <img src="logo.svg" alt="Medical Access Support Logo" class="centered-logo">
 </head>
+
 <body>
+<div class="grid-container">
   <!-- Header with navigation -->
-  <header>
+  <header class="header">
     <nav>
-      <ul>
+      <ul class="horizontal-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="my-account.html">My Account</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Resources</a>
+          <ul class="dropdown-content">
+            <li><a href="resource-advocacy.html">Self Advocacy</a></li>
+            <li><a href="reource-appointment.html">Appointment Info</a></li>
+          </ul>
+          <li>
+            <a href="#support">Chat Support</a>
+          </li>
+        </li>
       </ul>
     </nav>
   </header>
 
-  <main>
+  <main class="main-content">
     <article>
-      <h1>Self‑Advocacy in Medical Settings</h1>
+      <section id="guide">
+      <h1>Self Advocacy in Medical Settings</h1>
       <p>
-        Being your own advocate is key to ensuring you receive the care you need. Here are some tips:
-      </p>
+        Being your own advocate is key to ensuring you receive the care you need. Self advocacy means taking charge of your ownn healthcare by understanding your needs and speaking up for yourself. For young adults, especially those with autism or other learning difficulties, navigating a medical setting can sometimes feel overwhelming. This guide is designed to empower you with practical tips and strategies so that you feel confident and respected when communicating with your healthcare providers.</p>
+      </section>
+
+      <section id="what">
+        <h2>What is Self Advocacy?</h2>
+        <p>Self advocacy is about knowing your rights, understanding your body, and clearly expressing your needs during your healthcare appointments. It means asking questions, seeking clarification when you don't understand something, and ensuring that your voice is heard.</p>
+      </section>
+        
+      <section id="why">
+        <h2>Why It Matters</h2>
+        <ul>
+          <li><strong>Empowerment:</strong>Taking an active role in your healthcare helps you feel more in control of your treatment.</li>
+          <li><strong>Your Needs are Important:</strong>Everyone has unique needs. Advocating for yourself means that your specific challenges-like sensory sensitivites or processing difficulties are considered.</li>
+          <li><strong>Better Communication:</strong>When you communicate clearly, your healthcare providers can better understand and address your concerns.</li>
+        </ul>
+      </section>
+
+    <section id="tips">
+      <h2>Practical Tips for Self Advocacy:</h2>
       <ul>
         <li>
           <strong>Prepare in Advance:</strong> Write down your symptoms, questions, and concerns before your appointment.
@@ -38,14 +68,54 @@
         <li>
           <strong>Bring Support:</strong> Consider having a trusted person accompany you, especially if you feel anxious.
         </li>
+        <li>
+          <strong>Use Visual Aids and Written Notes:</strong>Tools such as diagrams, lists, or even a recorded note can help you communicate more effectively. Don't hesitate to use whatever tools make you feel most comfortable.
+        </li>
+        <li>
+          <strong>Practice Self-Care:</strong>If appointments make you feel anxious, use relaxation techniques like deep breathing or listen to calming music beforehand. It's okay to ask for breaks during long appointments.
+        </li>
       </ul>
       <p>
         Remember, you have the right to receive respectful and clear communication during your appointments.
       </p>
+    </section>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script>
+      let mybutton = document.getElementById("myBtn");
+
+      window.onscroll = function() {
+        scrollFunction();
+      };
+      function scrollFunction(){
+        if (document.body.scrollTop> 20 || document.documentElement.scrollTop> 20){
+          mybutton.style.display="block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      function topFunction(){
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+
     </article>
   </main>
 
-  <footer>
+  <!--Side Bar-->
+  <aside class="jump-to">
+    <h2>Jump To</h2>
+    <ul>
+      <li><a href="#guide">Guide</a></li>
+      <li><a href="#what">What is Self Advocacy?</a></li>
+      <li><a href="#why">Why It Matters</a></li>
+      <li><a href="#tips">Tips</a></li>
+    </ul>
+  </aside>
+  
+
+  <footer class="footer">
     <p>&copy; 2025 Medical Access Support</p>
   </footer>
 </body>
